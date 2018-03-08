@@ -11,5 +11,5 @@
 3. hesung branch (body)를 가져온다. dev branch (header, body, footer)를 갖게된다.
 4. git push  (변경된 dev branch는 remote에 반영된다) (edited)
 
-* Reference
-- http://blog.appkr.kr/learn-n-think/comparing-workflows/
+* Reference<br/>
+<http://blog.appkr.kr/learn-n-think/comparing-workflows/>
