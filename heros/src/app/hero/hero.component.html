@@ -1,0 +1,80 @@
+<!--data binding-->
+<!--the hero object-->
+
+
+<!-- | : pipe operator -->
+<!-- to activate built in uppercase -->
+<!--pipes are good way to format strings, dates, and other display data-->
+<h2>{{ heroTest.name | uppercase }} Details</h2>
+<div>
+  <span>id: </span>{{heroTest.id}}
+</div>
+<div>
+  <span>name: </span>{{heroTest.name}}
+</div>
+
+<!--edit the hero-->
+<!--edit the hero name in an input-->
+<div>
+  <label>name:
+    <input [(ngModel)]="heroTest.name" placeholder="name">
+  </label>
+</div>
+
+<!--displaying heroes-->
+<!--*ngFor is repeater directive : to repeat the host element for each element in a list-->
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <!--li is host ele-->
+  <!--heroes is the list from the heroescomponent class-->
+  <!--"hero" into heroes holds the current hero object-->
+  <li *ngFor="let hero of heroes">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+
+<!--style the heroes-->
+<h2>Styled Heroes</h2>
+<ul class="heroes">
+  <!--li is host ele-->
+  <!--heroes is the list from the heroescomponent class-->
+  <!--"hero" into heroes holds the current hero object-->
+  <li *ngFor="let hero of heroes"
+      (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero"
+  >
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
+<!--how to fix if selectedHero is undefined-->
+<!--<div *ngIf="selectedHero">
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div>
+    <span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.name" placeholder="name">
+    </label>
+  </div>
+</div>
+-->
+<!--property bidning-->
+<!--<child [state]="variable in parent compo"-->
+<!--@Input decorator-->
+<app-hero-list [hero]="selectedHero"></app-hero-list>
+<!--service test-->
+<h2>service test</h2>
+<ul class="heroes">
+  <li *ngFor="let heroData of heroDatas"
+      (click)="onSelect(heroData)"
+      [class.selected]="heroData === selectedHero">
+    <span class="badge">{{heroData.id}}</span> {{heroData.name}}
+  </li>
+</ul>
+<!--rxJs-->
+<h2>service test with rxjs</h2>
+<ul class="heroes">
+  <li *ngFor="let heroDataRxJs of heroDatasRxJs" (click)="onSelect(heroDataRxJs)" [class.selected]="heroDataRxJs === selectedHero">
+    <span class="badge">{{heroDataRxJs.id}}</span> {{heroDataRxJs.name}}
+  </li>
+</ul>
