@@ -4,6 +4,11 @@ import { Hero } from '../interfaces/hero.interface';
 import { HEROES } from '../dummyData/mock-hero';
 // service
 import { HeroService } from '../service/hero.service';
+import { MessageService } from '../service/message.service';
+
+import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs/observable/from';
+
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
@@ -29,12 +34,16 @@ export class HeroComponent implements OnInit {
   // function
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+    // injected dependancy
+    this.messageService.addHero(this.selectedHero);
   }
   // providers 프로퍼티의 설정 정보대로 동작하여
   // 의존 관계 객체의 인스턴스를 생성하고 주입한다.
   // 의존성 주입
   // 인스턴스 사용
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              private messageService: MessageService
+            ) { }
 
   GetHeroData(): void {
     this.heroDatas = this.heroService.getHeroes();
@@ -42,6 +51,7 @@ export class HeroComponent implements OnInit {
   GetHeroDataRxJs() {
     this.heroService.getHeroesRxJs().subscribe(hero => this.heroDatasRxJs = hero);
   }
+
   ngOnInit() {
    // this.selectedHero = {id: null, name: null};
    // but the HeroService.getHeroes() has a synchronous signature
