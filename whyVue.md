@@ -41,3 +41,6 @@
   - 상대적인 단점이다. 프론트엔드 개발을 1도 모르는 사람 기준에서는 단점이 될 수 있다.
   - 해당 부분 외에는 밀리는 부분이 없을 정도이니 v2 에서 그만큼 주목을 받은것 같다
 - 현재까지도 커뮤니티의 크기에 관련해 걱정과 우려가 있을 뿐, 단점으로 콕 찝어낼 만한 사항은 보이지 않는다
+
+### VS코드에서 실행하기 위한 extesion
+![alt text](https://github.com/hesungyoon/terafunding/blob/master/img/vue.png)
